@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <section>
+        <div class="title-container">
+            <h1 class="title">Turnos</h1>
+        </div>
+        <div class="turnos">
+            <!--<div class="turno">
+                <div class="status-container">
+                    <p class="status">Pendiente</p>
+                </div>
+                <div class="fecha-container">
+                    <p class="fecha">03/06</p>
+                </div>
+                <div class="horario-container">
+                    <p class="horario">10:30 - 15:00</p>
+                </div>
+                <div class="turno-btns">
+                    <input type="checkbox" class="check-input">
+                    <button class="delete-btn">x</button>
+                </div>
+            </div>-->
+        </div>
+    </section>
+    <div class="add-turno-container">
+        <button class="add-turno-btn">Nuevo Turno</button>
+    </div>
+    <div class="panel">
+        <h2>Nuevo turno</h2>
+        <form id="form-panel">
+            <div class="inputs-container">
+                <input type="date" id="fecha" class="input" required>
+                <input type="time" id="ingreso" class="input" required>
+                <input type="time" id="salida" class="input" required>
+            </div>
+            <div class="panel-btns">
+                <button id="cancel-btn" class="panel-btn" type="reset" form="form-panel" formnovalidate>Cancelar</button>
+                <input type="submit" id="add-btn" class="panel-btn" value="Agregar">
+            </div>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
