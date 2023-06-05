@@ -9,20 +9,23 @@ class Turno{
         this.status = 'Pendiente';
     }
 }
-
-let turnos = JSON.parse(localStorage.getItem('turnos')) || [];
+let cont_id = parseInt(localStorage.getItem('cont_id')) || 0;
+let turnosList = JSON.parse(localStorage.getItem('turnos')) || [];
 
 const saveTurno = ()=>{
-    localStorage.setItem('turnos', JSON.stringify(turnos));
+    localStorage.setItem('turnos', JSON.stringify(turnosList));
+    localStorage.setItem('cont_id', cont_id.toString());
 }
 
 const createTurno = (date, entrance, exit)=>{
     if(emptyString(date) && emptyString(entrance) && emptyString(exit)){
         alert('Porfavor ingrese todos los datos requeridos.');
     }else{
-        let id = turnos.length.toString();
-        turnos.push(new Turno(id, date, entrance, exit));
-        showTurnos(turnos);
+        let id = cont_id.toString();
+        turnosList.push(new Turno(id, date, entrance, exit));
+        alert(cont_id);
+        cont_id++;
+        showTurnos(turnosList);
         saveTurno();
     }
 }
@@ -30,57 +33,65 @@ const createTurno = (date, entrance, exit)=>{
 const deleteTurno = (id)=>{
     if(confirm('¿Deseas eliminar este turno?')){
         let i = 0;
-        while (i < turnos.length) {
-            if (turnos[i].id === id) {
-                turnos.splice(i, 1);
+        while (i < turnosList.length) {
+            if (turnosList[i].id === id) {
+                turnosList.splice(i, 1);
             } else {
                 i++;
             }
         }
-        showTurnos(turnos);
+        showTurnos(turnosList);
         saveTurno();
     }
 }
 
-const checkTurno = (id, cond)=>{
-    let turno = turnos.find( (item)=> item.id === id );
-    turno.checked = cond ? true : false;
-    turno.status = turno.checked ? 'Pago realizado' : 'Pendiente';
-    saveTurno();
-    showTurnos(turnos);
+const colorStatus = (status)=>{
+    return status === 'Pendiente' ? 'pendiente' : 'realizado';
 }
 
-const putCheck = (btn)=>{
-    let id = btn.getAttribute('data-id');
-    let turno = turnos.find( task => task.id === id);
-    btn.checked = turno.checked ? true : false;
+const checkTurno = (statusElement, checkBtn, cond)=>{
+    let id = checkBtn.getAttribute('data-id');
+    let turno = turnosList.find( (item)=> item.id === id );
+
+    turno.checked = cond ? true : false;
+    turno.status = cond ? 'Pago realizado' : 'Pendiente';
+
+    statusElement.innerHTML = cond ? 'Pago realizado' : 'Pendiente';
+    statusElement.className = colorStatus(turno.status);
+    
+    saveTurno();
+}
+
+const putCheck = (checkBtn, statusElement)=>{
+    let id = checkBtn.getAttribute('data-id');
+    let turno = turnosList.find( task => task.id === id);
+    checkBtn.checked = turno.checked ? true : false;
+    statusElement.innerHTML = checkBtn.checked ? 'Pago realizado' : 'Pendiente';
 }
 
 const addTurnoButtons = ()=>{
-    /*Delete button*/
-    let deleteBtns = document.querySelectorAll('.delete-btn');
-    deleteBtns.forEach(btn => {
-        btn.addEventListener('click', ()=>{
-            let id = btn.getAttribute('data-id');
+    let turnos = document.querySelectorAll('.turno');
+    turnos.forEach( turno => {
+        let statusElement = turno.firstElementChild.firstElementChild;
+        let deleteBtn = turno.querySelector(':nth-child(4)').lastElementChild;
+        let checkBtn = turno.querySelector(':nth-child(4)').firstElementChild;
+
+        //Add Delete Btn
+        deleteBtn.addEventListener('click', ()=>{
+            let id = deleteBtn.getAttribute('data-id');
             deleteTurno(id);
         })
-    });
-    /*Check button*/
-    let checkBtns = document.querySelectorAll('.check-input');
-    checkBtns.forEach(btn => {
-        putCheck(btn);
-        btn.addEventListener('change', (event)=>{
+
+        //Add Checkbox
+        putCheck(checkBtn, statusElement);
+        checkBtn.addEventListener('change', (event)=>{
             if(event.target.checked){
-                checkTurno(btn.getAttribute('data-id'), true);
+                checkTurno(statusElement, checkBtn, true);
             }else{
-                checkTurno(btn.getAttribute('data-id'), false);
+                checkTurno(statusElement, checkBtn, false);
             }
         })
-    });
-}
-
-const colorStatus = (status)=>{
-    return status === 'Pendiente' ? 'pendiente' : 'realizado';
+    })
 }
 
 const showTurnos = (list)=>{
@@ -90,12 +101,12 @@ const showTurnos = (list)=>{
         turnosContent = '<p font-size: 14px; style="text-align: center; margin: 1rem;">No hay turnos</p>';
         turnosSection.innerHTML = turnosContent;
     }else{
-        let turnosInverse = [...turnos].reverse()
+        let turnosInverse = [...turnosList].reverse()
         turnosInverse.forEach((turno)=>{
             turnosContent += `
             <div class="turno">
                 <div class="status-container">
-                    <p class="status ${colorStatus(turno.status)}">${turno.status}</p>
+                    <p class="status ${colorStatus(turno.status)}"></p>
                 </div>
                 <div class="fecha-container">
                     <p class="fecha">${turno.date}</p>
@@ -108,6 +119,7 @@ const showTurnos = (list)=>{
                     <button class="delete-btn" data-id="${turno.id}">x</button>
                 </div>
             </div>`;
+            console.log(turno.id);
         })
         turnosSection.innerHTML = turnosContent;
         addTurnoButtons();
@@ -145,4 +157,4 @@ formPanel.addEventListener('submit', (event)=>{
     formPanel.reset();
 })
 
-showTurnos(turnos);
+showTurnos(turnosList);
