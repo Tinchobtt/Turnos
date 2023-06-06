@@ -4,32 +4,60 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <title>Shift</title>
 </head>
 <body>
-    <section>
-        <div class="title-container">
-            <h1 class="title">Turnos</h1>
+    <header>
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="" class="logo-img" alt="">
+            </a>
         </div>
-        <div class="turnos">
-            <!--<div class="turno">
-                <div class="status-container">
-                    <p class="status">Pendiente</p>
+        <nav>
+            <ul class="nav-bar">
+                <li class="nav-item"><a href="index.html" class="nav-link">Turnos</a></li>
+                <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+            </ul>
+            <div class="mode">
+                <div class="track">
+                    <span class="handle"><i class="fa-solid fa-lightbulb"></i>
                 </div>
-                <div class="fecha-container">
-                    <p class="fecha">03/06</p>
-                </div>
-                <div class="horario-container">
-                    <p class="horario">10:30 - 15:00</p>
-                </div>
-                <div class="turno-btns">
-                    <input type="checkbox" class="check-input">
-                    <button class="delete-btn">x</button>
-                </div>
-            </div>-->
+            </div>
+            <div class="settings">
+                <a href="setting.html" style="color: #FFF">Settings</a>
+            </div>
+        </nav>
+        <div class="nav-bars">
+            <span class="line1-bar lines"></span>
+            <span class="line2-bar lines"></span>
+            <span class="line3-bar lines"></span>
         </div>
-    </section>
+    </header>
+    <main>
+        <section>
+            <div class="title-container">
+                <h1 class="title">Turnos</h1>
+            </div>
+            <div class="turnos">
+                <!--<div class="turno">
+                    <div class="status-container">
+                        <p class="status">Pendiente</p>
+                    </div>
+                    <div class="fecha-container">
+                        <p class="fecha">03/06</p>
+                    </div>
+                    <div class="horario-container">
+                        <p class="horario">10:30 - 15:00</p>
+                    </div>
+                    <div class="turno-btns">
+                        <input type="checkbox" class="check-input">
+                        <button class="delete-btn">x</button>
+                    </div>
+                </div>-->
+            </div>
+        </section>
+    </main>
     <div class="add-turno-container">
         <button class="add-turno-btn">Nuevo Turno</button>
     </div>
@@ -47,6 +75,8 @@
             </div>
         </form>
     </div>
-    <script src="script.js"></script>
+    <script src="https://kit.fontawesome.com/95134b7c36.js" crossorigin="anonymous"></script>
+    <script src="js/script.js"></script>
+    <script src="js/action.js"></script>
 </body>
 </html>

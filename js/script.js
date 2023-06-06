@@ -23,7 +23,6 @@ const createTurno = (date, entrance, exit)=>{
     }else{
         let id = cont_id.toString();
         turnosList.push(new Turno(id, date, entrance, exit));
-        alert(cont_id);
         cont_id++;
         showTurnos(turnosList);
         saveTurno();

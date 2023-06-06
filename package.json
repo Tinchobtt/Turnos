@@ -1,0 +1,11 @@
+{
+  "name": "anotador-de-turnos",
+  "version": "1.0.0",
+  "description": "https://tinchobtt.github.io/Turnos/",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
