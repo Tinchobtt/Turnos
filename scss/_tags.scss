@@ -7,4 +7,5 @@
 }
 body{
     background-color: var(--background-dark);
+    height: calc(100vh - env(safe-area-inset-top) - env(safe-area-inset-bottom));
 }

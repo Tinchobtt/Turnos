@@ -118,7 +118,6 @@ const showTurnos = (list)=>{
                     <button class="delete-btn" data-id="${turno.id}">x</button>
                 </div>
             </div>`;
-            console.log(turno.id);
         })
         turnosSection.innerHTML = turnosContent;
         addTurnoButtons();

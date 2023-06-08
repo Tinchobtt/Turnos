@@ -1,5 +1,5 @@
 main{
-    height: calc(100vh - 200px - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+    height: calc(100vh - 200px);
     padding: 0 1rem;
     section{
         display: flex;

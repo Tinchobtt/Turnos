@@ -15,6 +15,7 @@
 
 body {
   background-color: var(--background-dark);
+  height: calc(100vh - env(safe-area-inset-top) - env(safe-area-inset-bottom));
 }
 
 header {
@@ -136,7 +137,7 @@ header .nav-bars .activeLine2, header .nav-bars .activeLine3 {
 }
 
 main {
-  height: calc(100vh - 200px - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+  height: calc(100vh - 200px);
   padding: 0 1rem;
 }
 main section {

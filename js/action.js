@@ -16,3 +16,7 @@ const handle = document.querySelector('.handle');
 handle.addEventListener('click', ()=>{
     handle.classList.toggle('moveHandle');
 })
+
+const body = document.querySelector('body')
+let altura = body.scrollHeight; 
+console.log(altura)
