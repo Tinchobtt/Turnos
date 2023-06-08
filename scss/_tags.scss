@@ -6,6 +6,10 @@
     font-family: 'Montserrat', sans-serif;
 }
 body{
-    background-color: var(--background-dark);
+    background-color: var(--dark);
     height: calc(100vh - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+    transition: background .5s;
+    &.light{
+        background-color: var(--background-light);
+    }
 }

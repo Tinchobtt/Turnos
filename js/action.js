@@ -11,12 +11,10 @@ menuBtn.addEventListener('click', ()=>{
 })
 
 //MODE
+const body = document.querySelector('body');
 const handle = document.querySelector('.handle');
 
 handle.addEventListener('click', ()=>{
     handle.classList.toggle('moveHandle');
+    body.classList.toggle('light');
 })
-
-const body = document.querySelector('body')
-let altura = body.scrollHeight; 
-console.log(altura)

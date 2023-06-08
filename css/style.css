@@ -1,8 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600&display=swap");
 :root {
-  --background-dark: #0a0e0e;
-  --background-light: #f4f4f4;
-  --dark: #151D20;
+  --dark: #0a0e0e;
+  --background-light: #ececec;
+  --dark-blue: #151D20;
   --light: #fff;
 }
 
@@ -14,8 +14,12 @@
 }
 
 body {
-  background-color: var(--background-dark);
+  background-color: var(--dark);
   height: calc(100vh - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+  transition: background 0.5s;
+}
+body.light {
+  background-color: var(--background-light);
 }
 
 header {
@@ -55,9 +59,13 @@ header nav .nav-bar .nav-item {
   text-align: center;
 }
 header nav .nav-bar .nav-item .nav-link {
-  color: #fff;
+  color: var(--light);
   font-size: 22px;
   text-decoration: none;
+}
+body.light header nav .nav-bar .nav-item .nav-link {
+  color: var(--dark);
+  font-weight: 500;
 }
 header nav .mode {
   display: flex;
@@ -71,6 +79,9 @@ header nav .mode .track {
   padding: 3px;
   background-color: rgba(255, 255, 255, 0.1529411765);
   border-radius: 50px;
+}
+body.light header nav .mode .track {
+  background-color: rgba(0, 0, 0, 0.2039215686);
 }
 header nav .mode .track .handle {
   display: flex;
@@ -100,9 +111,13 @@ header nav .settings {
   align-items: center;
 }
 header nav .settings a {
-  color: #fff;
+  color: var(--light);
   font-size: 22px;
   text-decoration: none;
+}
+body.light header nav .settings a {
+  color: var(--dark);
+  font-weight: 500;
 }
 header .showNav {
   transform: translateX(0);
@@ -123,8 +138,11 @@ header .nav-bars .lines {
   width: 100%;
   height: 4px;
   border-radius: 15px;
-  background-color: #fff;
+  background-color: var(--light);
   transition: width 0.5s ease-in-out;
+}
+body.light header .nav-bars .lines {
+  background-color: var(--dark);
 }
 header .nav-bars .line2-bar {
   width: 70%;
@@ -154,7 +172,10 @@ main section .title-container {
   margin: 1rem;
 }
 main section .title-container .title {
-  color: #fff;
+  color: var(--light);
+}
+body.light main section .title-container .title {
+  color: var(--dark);
 }
 main section .turnos {
   width: 100%;
@@ -172,8 +193,10 @@ main section .turnos .turno {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1490196078);
   padding: 1rem 0.5rem;
   margin-bottom: 2rem;
-  background-color: #fff;
   background-color: #151D20;
+}
+body.light main section .turnos .turno {
+  background-color: var(--light);
 }
 main section .turnos .turno .status-container {
   grid-column: 1/4;
@@ -189,7 +212,10 @@ main section .turnos .turno .realizado {
 }
 main section .turnos .turno .fecha, main section .turnos .turno .horario {
   font-size: 14px;
-  color: #fff;
+  color: var(--light);
+}
+body.light main section .turnos .turno .fecha, body.light main section .turnos .turno .horario {
+  color: var(--dark);
 }
 main section .turnos .turno .turno-btns {
   display: flex;
@@ -227,7 +253,7 @@ main section .turnos .turno .delete-btn {
   padding: 0.5rem 1rem;
   border: none;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2235294118);
-  color: #fff;
+  color: var(--light);
   background-color: rgb(9, 80, 90);
   cursor: pointer;
 }
@@ -247,7 +273,7 @@ main section .turnos .turno .delete-btn {
 }
 .panel h2 {
   font-size: 18px;
-  color: #fff;
+  color: var(--light);
   margin: 0.5rem 0 2rem 0;
   text-align: center;
 }
@@ -286,7 +312,7 @@ main section .turnos .turno .delete-btn {
   padding: 4px 8px;
   border: none;
   border-radius: 5px;
-  color: #fff;
+  color: var(--light);
   cursor: pointer;
 }
 .panel #form-panel .panel-btns #cancel-btn {

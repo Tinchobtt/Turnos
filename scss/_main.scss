@@ -13,7 +13,10 @@ main{
             width: 100%;
             margin: 1rem;
             .title{
-                color: #fff;
+                color: var(--light);
+                body.light &{
+                    color: var(--dark);
+                }
             }
         }
         .turnos{
@@ -31,8 +34,10 @@ main{
                 box-shadow: 0 5px 15px #00000026;
                 padding: 1rem .5rem;
                 margin-bottom: 2rem;
-                background-color: #fff;
                 background-color: #151D20;
+                body.light &{
+                    background-color: var(--light);
+                }
                 .status-container{
                     grid-column: 1/4;
                     row-gap: 1rem;
@@ -47,7 +52,10 @@ main{
                 }
                 .fecha, .horario{
                     font-size: 14px;
-                    color: #fff;
+                    color: var(--light);
+                    body.light &{
+                        color: var(--dark);
+                    }
                 }
                 .turno-btns{
                     display: flex;
@@ -87,7 +95,7 @@ main{
         padding: .5rem 1rem;
         border: none;
         box-shadow: 0 5px 10px #00000039;
-        color: #fff;
+        color: var(--light);
         background-color: rgb(9, 80, 90);
         cursor: pointer;
     }
@@ -106,7 +114,7 @@ main{
     background-color: rgb(25, 109, 120);
     h2{
         font-size: 18px;
-        color: #fff;
+        color: var(--light);
         margin: .5rem 0 2rem 0;
         text-align: center;
     }
@@ -143,7 +151,7 @@ main{
                 padding: 4px 8px;
                 border: none;
                 border-radius: 5px;
-                color: #fff;
+                color: var(--light);
                 cursor: pointer;
             }
             #cancel-btn{
