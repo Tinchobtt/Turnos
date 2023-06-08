@@ -13,3 +13,20 @@ body{
         background-color: var(--background-light);
     }
 }
+@media (min-width: 768px){
+    body{
+        width: 768px;
+        margin: auto;
+        overflow-x: hidden;
+        border: 1px solid red;
+        header{
+            nav{
+                width: calc(768px / 2);
+                transform: translateX(100%);
+            }
+            .showNav{
+                transform: translateX(-100%);
+            }
+        }
+    }
+}

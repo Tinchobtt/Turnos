@@ -1,3 +1,9 @@
+const user = {
+    name : '',
+    darkMode : true,
+    timeTable : {}
+}
+
 class Turno{
     constructor(id, date, entrance, exit){
         this.id = id;

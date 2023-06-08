@@ -22,6 +22,21 @@ body.light {
   background-color: var(--background-light);
 }
 
+@media (min-width: 768px) {
+  body {
+    width: 768px;
+    margin: auto;
+    overflow-x: hidden;
+    border: 1px solid red;
+  }
+  body header nav {
+    width: 384px;
+    transform: translateX(100%);
+  }
+  body header .showNav {
+    transform: translateX(-100%);
+  }
+}
 header {
   display: flex;
   justify-content: space-between;
@@ -29,9 +44,14 @@ header {
   height: 100px;
 }
 header .logo-container a {
-  display: block;
+  display: flex;
+  align-items: center;
   width: 5rem;
   height: 100%;
+  padding: 0.5rem;
+}
+header .logo-container a .logo-img {
+  width: 100%;
 }
 header nav {
   display: grid;
@@ -44,7 +64,7 @@ header nav {
   margin-top: 100px;
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  transform: translateX(100vw);
+  transform: translateX(100%);
   transition: transform 0.6s ease-in-out;
   overflow-x: hidden;
 }
@@ -337,11 +357,17 @@ main section .turnos .turno .delete-btn {
   text-align: center;
   margin-bottom: 1rem;
 }
+body.light #about .title {
+  color: var(--dark);
+}
 #about .text {
   color: #fff;
   font-size: 14px;
   text-align: justify;
   line-height: 25px;
+}
+body.light #about .text {
+  color: var(--dark);
 }
 
 /*# sourceMappingURL=style.css.map */

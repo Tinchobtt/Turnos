@@ -5,11 +5,17 @@
         font-size: 22px;
         text-align: center;
         margin-bottom: 1rem;
+        body.light &{
+            color: var(--dark);
+        }
     }
     .text{
         color: #fff;
         font-size: 14px;
         text-align: justify;
         line-height: 25px;
+        body.light &{
+            color: var(--dark);
+        }
     }
 }
