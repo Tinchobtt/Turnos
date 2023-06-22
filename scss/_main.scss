@@ -21,8 +21,13 @@ main{
         }
         .turnos{
             width: 100%;
+            height: 100%;
             padding: 1rem;
             overflow-y: scroll;
+            /* Personaliza la barra de desplazamiento */
+            &::-webkit-scrollbar, &::-webkit-scrollbar-thumb, &::-webkit-scrollbar-track {
+                visibility: hidden;
+            }
             .turno{
                 display: grid;
                 grid-template-columns: 25% 50% 25%;
@@ -108,6 +113,7 @@ main{
     left: 50%;
     transform: translate(-50%, -50%);
     width: 85%;
+    max-width: calc(768px * .85);
     height: 280px;
     padding: 1rem;
     border-radius: 15px;

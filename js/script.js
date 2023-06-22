@@ -103,10 +103,12 @@ const showTurnos = (list)=>{
     let turnosContent = '';
     const turnosSection = document.querySelector('.turnos');
     if(emptyList(list)){
-        turnosContent = '<p font-size: 14px; style="text-align: center; margin: 1rem;">No hay turnos</p>';
+        turnosContent = '<p class="empty">No hay turnos</p>';
+        turnosSection.style.overflowY = 'hidden';
         turnosSection.innerHTML = turnosContent;
     }else{
         let turnosInverse = [...turnosList].reverse()
+        turnosSection.style.overflowY = 'scroll';
         turnosInverse.forEach((turno)=>{
             turnosContent += `
             <div class="turno">
